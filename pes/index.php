@@ -23,10 +23,8 @@
      $dkkFeny = $_POST['dkk'];
      $dlkFeny = $_POST['dlk'];
 
-     $fena = new Fena(htmlspecialchars($_POST['otec']),htmlspecialchars($_POST['matka']), htmlspecialchars($_POST['staniceOtce']), htmlspecialchars($_POST['staniceMatky']));
-    
-     
-
+     $fena = new Fena(htmlspecialchars($_POST['otec']),htmlspecialchars($_POST['matka']),
+                      htmlspecialchars($_POST['staniceOtce']), htmlspecialchars($_POST['staniceMatky']));
  }
 
 ?>
@@ -39,42 +37,20 @@
 <body>
 <div class="container">
 
-
   <?php if(!$_POST){
      if(isset($_GET['pes'])){
       require 'kartaPage/header.php';
+      require 'kartaPage/kartaPsa.php';
      }else{
       require 'formPage/header.php';
+      require 'formPage/form.php';
      }
    }else{
     require 'filterPage/header.php';
+    require 'filterPage/psi.php';
    } ?>  
 
-  <?php if(!$_POST){
-    if(isset($_GET['pes'])){
-      require 'kartaPage/kartaPsa.php';
-    }else{
-      require 'formPage/form.php';
-    }
-  }else{
-    require 'filterPage/psi.php';
-    }
-  
-    ?> 
-
 </div>
-
-<script type="text/javascript">
-$(document).ready(function () {
-    $('#submit').click(function() {
-      checked = $("input[type=checkbox]:checked").length;
-      if(!checked) {
-        alert("Některá pole nejsou vyplněna.");
-        return false;
-      }
-    });
-});
-</script>
 
 </body>
 </html>
