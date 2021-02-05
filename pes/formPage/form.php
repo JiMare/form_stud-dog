@@ -95,8 +95,8 @@
     <span class="clue">(vyberte všechny možnosti)</span>
     </p>
         <label>
-        <input type="checkbox" class="input-checkbox" name="stavba[]" value="A" checked>
-        A - odpovídá standardu
+        <input type="hidden" class="input-checkbox" name="stavba[]" value="A" checked>
+        <img src="images/checked.png" alt="checked">&nbspA - odpovídá standardu
         </label>
         <label>
         <input type="checkbox" class="input-checkbox" name="stavba[]" value="B">
