@@ -44,7 +44,7 @@ class Fena{
           SELECT * FROM `predci` WHERE `predci_id`=?
           UNION SELECT p.* FROM `predci` AS p, ancestors AS a WHERE
           p.`predci_id` = a.`otec_id` OR p.`predci_id` = a.`matka_id` )
-          SELECT `predci_id` FROM ancestors', array($this->getIdMatky()));
+          SELECT `predci_id` FROM ancestors LIMIT 7', array($this->getIdMatky()));
           $data = $vysledek->fetchAll();
         return $data;
       }
@@ -54,7 +54,7 @@ class Fena{
           SELECT * FROM `predci` WHERE `predci_id`=?
           UNION SELECT p.* FROM `predci` AS p, ancestors AS a WHERE
           p.`predci_id` = a.`otec_id` OR p.`predci_id` = a.`matka_id` )
-          SELECT `predci_id` FROM ancestors', array($this->getIdOtce()));
+          SELECT `predci_id` FROM ancestors LIMIT 7', array($this->getIdOtce()));
           $data = $vysledek->fetchAll();
         return $data;
       }
