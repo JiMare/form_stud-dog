@@ -63,7 +63,7 @@ class SpravcePsu{
         SELECT * FROM `predci` WHERE `predci_id`=?
         UNION SELECT p.* FROM `predci` AS p, ancestors AS a WHERE
         p.`predci_id` = a.`otec_id` OR p.`predci_id` = a.`matka_id` )
-        SELECT `predci_id` FROM ancestors', array($this->najdiMatku($id)['predci_id']));
+        SELECT `predci_id` FROM ancestors LIMIT 7', array($this->najdiMatku($id)['predci_id']));
         $data = $vysledek->fetchAll();
         return $data;
     }
@@ -74,7 +74,7 @@ class SpravcePsu{
         SELECT * FROM `predci` WHERE `predci_id`=?
         UNION SELECT p.* FROM `predci` AS p, ancestors AS a WHERE
         p.`predci_id` = a.`otec_id` OR p.`predci_id` = a.`matka_id` )
-        SELECT `predci_id` FROM ancestors', array($this->najdiOtce($id)['predci_id']));
+        SELECT `predci_id` FROM ancestors LIMIT 7', array($this->najdiOtce($id)['predci_id']));
         $data = $vysledek->fetchAll();
         return $data;
     }
